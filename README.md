@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # News share prediction Regression Pipeline
 This machine learning pipeline takes in a dataset of news article data and uses regression models to predict shares.
 
@@ -182,3 +181,4 @@ This machine learning pipeline takes in a dataset of news article data and uses 
 =======
 # CollinChris-RegressionMiniProject
 >>>>>>> 7c89254892d5ea93858af709197880659ab16648
+
