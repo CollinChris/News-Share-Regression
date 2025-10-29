@@ -1,0 +1,66 @@
+INFO:root:Starting data cleaning.
+INFO:root:Replaced 20660 negative values in 'kw_min_min'
+INFO:root:Replaced 767 negative values in 'kw_avg_min'
+INFO:root:Replaced 6 negative values in 'kw_min_avg'
+INFO:root:Missing values filled.
+INFO:root:New features created.
+INFO:root:Capped shares at 99th percentile: 32000.0
+INFO:root:Capped n_comments at 99th percentile: 1188.0
+INFO:root:Data cleaning completed.
+INFO:root:Starting data splitting.
+INFO:root:Data splitting completed.
+INFO:root:Starting baseline model training & evaluation.
+INFO:root:Validation metrics for LinearRegression:
+INFO:root:MAE: 0.5998462024577147
+INFO:root:MSE: 0.6151211214418589
+INFO:root:RMSE: 0.7842965774768235
+INFO:root:r2: 0.2621321917380367
+INFO:root:mae_orig: 1778.1455736249386
+INFO:root:LinearRegression baseline trained & evaluated.
+INFO:root:Validation metrics for RandomForest:
+INFO:root:MAE: 0.49968380713464106
+INFO:root:MSE: 0.4832617767466663
+INFO:root:RMSE: 0.6951703221129814
+INFO:root:r2: 0.4203039115467132
+INFO:root:mae_orig: 1494.4667378982062
+INFO:root:RandomForest baseline trained & evaluated.
+INFO:root:Validation metrics for XGBoost:
+INFO:root:MAE: 0.4912740681909732
+INFO:root:MSE: 0.4701242799875583
+INFO:root:RMSE: 0.6856560945456245
+INFO:root:r2: 0.4360629801297742
+INFO:root:mae_orig: 1494.5901988418648
+INFO:root:XGBoost baseline trained & evaluated.
+INFO:root:Starting hyper-parameter tuning & evaluation.
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+INFO:root:Validation metrics for LinearRegression (Tuned):
+INFO:root:MAE: 0.5998462033067671
+INFO:root:MSE: 0.6151211242327543
+INFO:root:RMSE: 0.7842965792560582
+INFO:root:r2: 0.26213218839022157
+INFO:root:mae_orig: 1778.1455677309075
+INFO:root:LinearRegression tuning finished – best CV r2: 0.2875
+Fitting 5 folds for each of 81 candidates, totalling 405 fits
+INFO:root:Validation metrics for RandomForest (Tuned):
+INFO:root:MAE: 0.4996838071346411
+INFO:root:MSE: 0.48326177674666637
+INFO:root:RMSE: 0.6951703221129815
+INFO:root:r2: 0.4203039115467131
+INFO:root:mae_orig: 1494.4667378982065
+INFO:root:RandomForest tuning finished – best CV r2: 0.4384
+Fitting 5 folds for each of 243 candidates, totalling 1215 fits
+INFO:root:Validation metrics for XGBoost (Tuned):
+INFO:root:MAE: 0.4910786700623219
+INFO:root:MSE: 0.47081555030389993
+INFO:root:RMSE: 0.686160003427699
+INFO:root:r2: 0.4352337676455078
+INFO:root:mae_orig: 1491.7625752607269
+INFO:root:XGBoost tuning finished – best CV r2: 0.4513
+INFO:root:Best model found: XGBoost
+INFO:root:Final test metrics for XGBoost:
+INFO:root:MAE: 0.47210612553114717
+INFO:root:MSE: 0.4462025239682291
+INFO:root:RMSE: 0.667983924932501
+INFO:root:r2: 0.4548205569267134
+INFO:root:mae_orig: 1457.6082455160372
+INFO:root:Final evalation metrics: {'MAE': 0.47210612553114717, 'MSE': 0.4462025239682291, 'RMSE': 0.667983924932501, 'r2': 0.4548205569267134, 'mae_orig': 1457.6082455160372}

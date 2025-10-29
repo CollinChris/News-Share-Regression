@@ -1,0 +1,89 @@
+file_path: './data/news.csv'
+target_column: shares
+val_test_size: 0.2
+val_size: 0.5
+cv: 5
+random_state: 42
+scoring: r2
+numerical_features:
+  - timedelta
+  - n_non_stop_words
+  - num_imgs
+  - n_comments
+  - self_reference_avg_shares
+  - num_keywords
+  - kw_avg_max
+  - kw_min_avg
+  - kw_max_avg
+  - kw_avg_avg
+  - n_comments_data_channel_business
+  - n_comments_data_channel_entertainment
+  - n_comments_data_channel_lifestyle
+  - n_comments_data_channel_social_media
+  - n_comments_data_channel_technology
+  - n_comments_data_channel_world
+  - n_comments_data_channel_unknown
+  - time_comments
+  - comments_selfref_avg
+  - comments_non_stop_words
+nominal_features: 
+  - data_channel
+  - weekday
+  - is_missing_videos
+columns_to_drop:
+  - ID
+  - URL
+  - kw_min_min
+  - kw_max_min
+  - kw_min_max
+  - kw_max_max
+  - self_reference_min_shares
+  - self_reference_max_shares
+  - n_non_stop_unique_tokens
+  - num_videos
+  - average_token_length
+  - num_hrefs
+  - num_self_hrefs
+  - n_tokens_title
+  - kw_avg_min
+  - n_unique_tokens
+  - n_tokens_content
+baseline_models:
+  LinearRegression:
+    model: sklearn.linear_model.LinearRegression
+    params:
+      fit_intercept: true
+    param_grid: 
+      model__fit_intercept: [true, false]
+
+  RandomForest:
+    model: sklearn.ensemble.RandomForestRegressor
+    params:
+      random_state: 42
+      n_estimators: 150          
+      max_depth: 16              # Best: 16
+      min_samples_split: 10      # Best: 10
+      min_samples_leaf: 3        # Best: 3
+      n_jobs: -1
+    param_grid:
+      model__n_estimators: [100, 124, 150]
+      model__max_depth: [12, 14, 16]
+      model__min_samples_split: [6, 8, 10]
+      model__min_samples_leaf: [2, 3, 4]
+
+  XGBoost:
+    model: xgboost.XGBRegressor
+    params:
+      random_state: 42
+      n_estimators: 250         
+      max_depth: 6               # Best: 6
+      learning_rate: 0.05        # Best: 0.05
+      subsample: 0.844           # Best: 0.844
+      colsample_bytree: 0.65     # Best: 0.65
+      n_jobs: -1
+    param_grid:
+      model__n_estimators: [250, 298, 350]
+      model__max_depth: [5, 6, 7]
+      model__learning_rate: [0.05, 0.058, 0.07]
+      model__subsample: [0.8, 0.844, 0.9]
+      model__colsample_bytree: [0.65, 0.692, 0.75]
